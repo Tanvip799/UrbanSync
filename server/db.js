@@ -1,18 +1,15 @@
 const nano = require('nano')('http://tanvi:tanvi@localhost:5984');
-const db = nano.db.use('doc_app');  // Replace with your database name
+const dbName = 'doc_app';  // Replace with your database name
 
+async function testConnection() {
+  try {
+    const db = nano.db.use(dbName);
+    // Fetch document information from a known document ID or retrieve info from the database
+    const info = await db.info();
+    console.log('Database Info:', info);
+  } catch (err) {
+    console.error('Error connecting to CouchDB:', err);
+  }
+}
 
-const newDoc = {
-    name: 'Jane Doe',
-    age: 28,
-    occupation: 'Web Developer'
-  };
-  
-  // Insert the document
-  db.insert(newDoc, 'user_jane_doe', (err, body) => {
-    if (err) {
-      console.error('Error inserting document:', err);
-      return;
-    }
-    console.log('Document inserted successfully:', body);
-  });
+testConnection();
