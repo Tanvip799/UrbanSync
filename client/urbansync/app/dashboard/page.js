@@ -2,7 +2,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 
-import UserDashboard from '../_components/UserDahboard';
+import UserDashboard from '../_components/UserDashboard';
 import ProjMDashboard from '../_components/projectManagerDashboard';
 import AdminDashboard from '../_components/AdminDashboard';
 import SuperAdminDashboard from '../_components/SupAdminDashboard';

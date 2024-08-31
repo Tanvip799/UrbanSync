@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Navbar from './_components/Navbar';
 import Head from 'next/head';
+import UserDashboard from './_components/UserDashboard';
 
 export default function Home() {
   return (
@@ -12,6 +13,10 @@ export default function Home() {
         />
       </Head>
       <Navbar />
+      <div style={{ marginLeft: '15%', marginRight:'2%' }}>
+      <UserDashboard/>
+      </div>
+      
     </>
   );
 }
