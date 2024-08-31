@@ -1,4 +1,4 @@
-const nano = require('nano')('http://tanvi:tanvi@localhost:5984');
+const nano = require('nano')('http://piyanshu:piyanshu@localhost:5984');
 const db = nano.db.use('doc_app');  // Replace with your database name
 
 
