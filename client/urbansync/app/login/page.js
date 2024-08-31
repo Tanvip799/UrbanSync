@@ -21,20 +21,14 @@ const LoginPage = () => {
 
       if (response.ok) {
         setMessage(data.message);
-        localStorage.setItem('token', data.token);
+        localStorage.setItem('token', data.token);  
+        sessionStorage.setItem('username', username); 
+        sessionStorage.setItem('role', data.role);
 
-        // Use role from server response
+      
         const { role } = data;
 
-        if (role === 'SuperAdmin') {
-          router.push('/dashboard/superadmin');
-        } else if (role === 'Admin') {
-          router.push('/dashboard/admin');
-        } else if (role === 'Project Manager') {
-          router.push('/dashboard/projectmanager');
-        } else {
-          router.push('/dashboard/user');
-        }
+        router.push('dashboard');
       } else {
         setError(data.error);
       }

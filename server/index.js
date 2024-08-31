@@ -77,17 +77,16 @@ app.post('/register', async (req, res) => {
         return res.status(400).json({ error: 'Invalid credentials' });
       }
   
-      // Create the token with role
       const token = jwt.sign(
         { id: user._id, username: user.username, role: user.role }, 
         JWT_SECRET, 
         { expiresIn: '1h' }
       );
   
-      // Send response with role included
+      
       res.json({ 
         token, 
-        role: user.role, // Include role in response
+        role: user.role, 
         message: 'Login successful'
       });
     } catch (error) {
@@ -113,6 +112,9 @@ const authenticateToken = (req, res, next) => {
 
 app.get('/dashboard', authenticateToken, (req, res) => {
   res.json({ message: `Welcome ${req.user.username} to the dashboard!`, user: req.user });
+});
+app.get('/verify-token', authenticateToken, (req, res) => {
+  res.json({ message: 'Token is valid', user: req.user });
 });
 
 
