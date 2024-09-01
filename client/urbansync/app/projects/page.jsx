@@ -7,7 +7,7 @@ function page() {
     return (
         <div>
             <Navbar />
-            <div style={{ marginLeft: '15%', marginRight: '2%' }}>
+            <div style={{ marginLeft: '20%', marginRight: '2%' }}>
                 <UserDashboard />
             </div>
         </div>

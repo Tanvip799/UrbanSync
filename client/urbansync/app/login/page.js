@@ -28,7 +28,7 @@ const LoginPage = () => {
       
         const { role } = data;
 
-        router.push('dashboard');
+        router.push('/');
       } else {
         setError(data.error);
       }

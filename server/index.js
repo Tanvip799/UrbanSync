@@ -14,41 +14,42 @@ app.use(express.json());
 const JWT_SECRET = 'your_secret_key';
 
 app.post('/register', async (req, res) => {
-    const { username, password } = req.body;
-  
-    if (!username || !password) {
-      return res.status(400).json({ error: 'Username and password are required' });
+  const { username, password, firstName, lastName, email, role } = req.body;
+
+  if (!username || !password || !firstName || !lastName || !email || !role) {
+    return res.status(400).json({ error: 'All fields are required' });
+  }
+
+  try {
+    const existingUserQuery = {
+      selector: { username: username }
+    };
+
+    const result = await db.find(existingUserQuery);
+
+    if (result.docs.length > 0) {
+      return res.status(400).json({ error: 'User already exists' });
     }
-  
-    try {
-   
-      const existingUserQuery = {
-        selector: { username: username }
-      };
-  
-      const result = await db.find(existingUserQuery);
-  
-      if (result.docs.length > 0) {
-        return res.status(400).json({ error: 'User already exists' });
-      }
-  
-      const hashedPassword = await bcrypt.hash(password, 10);
-  
-     
-      const user = {
-        username: username,
-        password: hashedPassword,
-        role: 'user',
-      };
-  
-      await db.insert(user);
-      res.status(201).json({ message: 'User registered successfully' });
-    } catch (error) {
-      console.error('Error during registration:', error);
-      res.status(500).json({ error: 'Internal Server Error' });
-    }
-  });
-  
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    const user = {
+      username: username,
+      password: hashedPassword,
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      role: role,
+    };
+
+    await db.insert(user);
+    res.status(201).json({ message: 'User registered successfully' });
+  } catch (error) {
+    console.error('Error during registration:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
   app.post('/login', async (req, res) => {
     const { username, password } = req.body;
   

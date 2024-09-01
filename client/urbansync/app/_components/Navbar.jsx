@@ -11,7 +11,7 @@ const Navbar = () => {
 
 
     return (
-        <nav className="w-[14%] flex flex-col justify-between items-center h-screen fixed left-0 bg-[#f4f7fe] pt-6 pb-3">
+        <nav className="w-[18%] flex flex-col justify-between items-center h-screen fixed left-0 bg-[#ffffff] pt-6 pb-3">
       <Link href="/" className="flex space-x-2 items-center">
         
         <div className="flex flex-col justify-center space-y-[-6px]">

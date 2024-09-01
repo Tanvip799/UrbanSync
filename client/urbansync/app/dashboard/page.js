@@ -28,8 +28,8 @@ const Dashboard = () => {
 
   return (
     <div>
-      {role === 'Admin' && <AdminDashboard />}
-      {role === 'user' && <UserDashboard />}
+      {role === 'Department Head' && <AdminDashboard />}
+      {role === 'employee' && <UserDashboard />}
       {role === 'SuperAdmin' && <SuperAdminDashboard />}
       {role === 'Project Manager' && <ProjMDashboard />}
       {!['Admin', 'user', 'SuperAdmin','Project Manager'].includes(role) && <div>Access Denied</div>}
