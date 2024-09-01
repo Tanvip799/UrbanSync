@@ -13,7 +13,7 @@ export default function Home() {
         />
       </Head>
       <Navbar />
-      <div style={{ marginLeft: '15%', marginRight:'2%' }}>
+      <div className="ml-0 mr-0 md:ml-[15%] md:mr-[2%] lg:ml-[15%] lg:mr-[2%]">
       <UserDashboard/>
       </div>
       

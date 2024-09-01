@@ -116,8 +116,8 @@ const UserDashboard = () => {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-        <BarChart/>
         <LineChart/>
+        <BarChart/>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">

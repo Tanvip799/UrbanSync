@@ -11,7 +11,7 @@ const Navbar = () => {
 
 
     return (
-        <nav className="w-[14%] flex flex-col justify-between items-center h-screen fixed left-0 bg-[#f4f7fe] pt-6 pb-3">
+        <nav className="hidden md:flex w-[14%] flex-col justify-between items-center h-screen fixed left-0 bg-white shadow-lg pt-6 pb-3">
       <Link href="/" className="flex space-x-2 items-center">
         
         <div className="flex flex-col justify-center space-y-[-6px]">
@@ -28,74 +28,85 @@ const Navbar = () => {
       </Link>
 
       <div className="flex flex-col items-center space-y-2 w-[100%] mb-20">
-        <Link href="/" passHref>
-          <div
-            className={`text-black flex py-2 px-10 rounded-lg justify-start items-center transition duration-100 ${
+      <div
+            className={`w-[85%] text-black py-2 px-4 rounded-lg transition duration-100 ${
               path === '/' ? 'bg-black text-white' : 'hover:bg-gray-300 hover:font-semibold'
             }`}
           >
+        <Link href="/" passHref className='flex justify-start items-center'>
+          
             <span><Home className="h-4 w-4 mr-2" /></span>
             <p className="text-sm font-pop">Dashboard</p>
-          </div>
+          
         </Link>
-
-        <Link href="/tasks" passHref>
-          <div
-            className={`text-black flex py-2 px-10 rounded-lg justify-start items-center transition duration-100 ${
+        </div>
+        <div
+            className={`w-[85%] text-black py-2 px-4 rounded-lg transition duration-100 ${
               path === '/tasks' ? 'bg-black text-white' : 'hover:bg-gray-300 hover:font-semibold'
             }`}
           >
+        <Link href="/tasks" passHref className='flex justify-start items-center'>
+          
             <span><NotebookIcon className="h-4 w-4 mr-2" /></span>
-            <p className="text-sm font-pop">Tasks</p>
-          </div>
+            <p className="text-sm font-pop">My Tasks</p>
+          
         </Link>
+        </div>
 
-        <Link href="/projects" passHref>
-          <div
-            className={`text-black flex py-2 px-10 rounded-lg justify-start items-center transition duration-100 ${
+        <div
+            className={`w-[85%] text-black py-2 px-4 rounded-lg transition duration-100 ${
               path === '/projects' ? 'bg-black text-white' : 'hover:bg-gray-300 hover:font-semibold'
             }`}
           >
+        <Link href="/projects" passHref className='flex justify-start items-center'>
+          
             <span><Folder className="h-4 w-4 mr-2" /></span>
             <p className="text-sm font-pop">Projects</p>
-          </div>
+          
         </Link>
+        </div>
 
-        <Link href="/resources" passHref>
-          <div
-            className={`text-black flex py-2 px-10 rounded-lg justify-start items-center transition duration-100 ${
+        <div
+            className={`w-[85%] text-black py-2 px-4 rounded-lg transition duration-100 ${
               path === '/resources' ? 'bg-black text-white' : 'hover:bg-gray-300 hover:font-semibold'
             }`}
           >
+        <Link href="/resources" passHref className='flex justify-start items-center'>
+          
             <span><FileText className="h-4 w-4 mr-2" /></span>
             <p className="text-sm font-pop">Resources</p>
-          </div>
+          
         </Link>
+        </div>
 
-        <Link href="/reports" passHref>
-          <div
-            className={`text-black flex py-2 px-10 rounded-lg justify-start items-center transition duration-100 ${
+        <div
+            className={`w-[85%] text-black py-2 px-4 rounded-lg transition duration-100 ${
               path === '/reports' ? 'bg-black text-white' : 'hover:bg-gray-300 hover:font-semibold'
             }`}
           >
+        <Link href="/reports" passHref className='flex justify-start items-center'>
+          
             <span><BarChart className="h-4 w-4 mr-2" /></span>
             <p className="text-sm font-pop">Reports</p>
-          </div>
+          
         </Link>
+        </div>
 
         
       </div>
 
-      <Link href="/account" passHref>
-          <div
-            className={`text-black flex py-4 px-12 rounded-lg justify-start items-center transition duration-100 ${
+      <div
+            className={`w-[85%] text-black py-4 px-6 rounded-lg transition duration-100 ${
               path === '/account' ? 'bg-black text-white' : 'hover:bg-gray-300 hover:font-semibold'
             }`}
           >
-            <span><User className="h-4 w-4 mr-2" /></span>
-            <p className="text-sm font-pop">Account</p>
-          </div>
+        <Link href="/account" passHref className='flex justify-start items-center'>
+          
+        <span><User className="h-4 w-4 mr-2" /></span>
+        <p className="text-sm font-pop">Account</p>
+          
         </Link>
+        </div>
     </nav>
     );
 };
